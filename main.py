@@ -87,7 +87,7 @@ class WinSplitRevolution(object):
         handle = handle or self.root.display
         for _ in range(0, handle.pending_events()):
             event = handle.next_event()
-            if event.type == X.KeyPress:
+            if event.type == X.KeyPress and event.detail in self.keys:
                 posname = self.keys[event.detail]
                 self._handle_event(posname)
 
